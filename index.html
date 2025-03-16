@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>PiSpace Shooter</title>
-  <!-- Eye-catching colors and Pi logo -->
-  <link rel="icon" href="https://example.com/path-to-pi-logo.png" />
+
+  <!-- Use your local Pi logo file. Make sure the path to pi-logo.png is correct. -->
+  <link rel="icon" href="./images/pi-logo.png" />
+
   <style>
     /* BASIC RESET */
     * {
@@ -92,13 +94,14 @@
   </style>
 </head>
 <body>
-
 <div id="gameContainer">
   <canvas id="gameCanvas" width="480" height="600"></canvas>
 
   <!-- MAIN MENU OVERLAY -->
   <div id="menuOverlay" style="display:flex;">
     <div class="overlayContent">
+      <!-- Display the local Pi logo at the top. Adjust size/style as you wish. -->
+      <img src="./images/pi-logo.png" alt="Pi Logo" style="width: 100px; height: auto; margin-bottom: 10px;" />
       <h2>PiSpace Shooter</h2>
       <p>Welcome to PiSpace Shooter! Blast asteroids, earn points, and climb the leaderboard.</p>
       <button onclick="startGame()">Play Free Game</button>
@@ -115,7 +118,7 @@
       <h2>Sign Up / Sign In</h2>
       <p>Authenticate with Pi Wallet:</p>
       <button onclick="piWalletLogin()">Login with Pi Wallet</button>
-      <hr>
+      <hr />
       <p>Update Pi Address (if needed):</p>
       <input type="text" id="piAddressInput" placeholder="Enter or update Pi address" />
       <button onclick="savePiAddress()">Save Pi Address</button>
@@ -155,14 +158,19 @@
         <option value="50">50 Pi → 500 Coins</option>
         <option value="custom">Custom (1 Pi = 10 Coins)</option>
       </select>
-      <input type="number" id="customPiAmount" placeholder="If custom, enter number of Pi" style="display:none;">
+      <input 
+        type="number" 
+        id="customPiAmount" 
+        placeholder="If custom, enter number of Pi" 
+        style="display:none;" 
+      />
       <button onclick="buyCoins()">Buy</button>
-      <hr>
+      <hr />
       <h2>Withdraw Coins</h2>
       <p>Minimum withdrawal is 100 coins.</p>
-      <input type="number" id="withdrawCoins" placeholder="Enter number of coins to withdraw">
+      <input type="number" id="withdrawCoins" placeholder="Enter number of coins to withdraw" />
       <button onclick="withdrawCoinRequest()">Withdraw</button>
-      <hr>
+      <hr />
       <button onclick="toggleOverlay('paymentOverlay', false)">Close</button>
     </div>
   </div>
@@ -179,19 +187,18 @@
       <h3>4-Player:</h3>
       <button onclick="create4PlayerMatch(10)">Fee 10 coin → win 30 coins</button>
       <button onclick="create4PlayerMatch(100)">Fee 100 coin → win 350 coins</button>
-      <hr>
+      <hr />
       <p>Your Match History (2-Player and 4-Player) will appear in your profile soon!</p>
       <button onclick="toggleOverlay('p2pOverlay', false)">Close</button>
     </div>
   </div>
 </div>
 
-<!-- Firebase and Game Logic Scripts -->
+<!-- Firebase and Game Script References -->
 <script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-firestore-compat.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="app.js"></script>
-
 </body>
 </html>
